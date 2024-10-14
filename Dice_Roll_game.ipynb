@@ -1,0 +1,186 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOy0kkJEUNZoFN6rCDXEY7Z",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Aswathy-04/Test/blob/main/Dice_Roll_game.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Project Overview:**\n",
+        "In this project, you have to create a Dice Roll game in which two players will roll the dice one after another for 10 rounds. In each round, if the number on dice face for player 1 is greater than that for player 2, player 1 scores a point else player 2 will score a point. After 10 rounds, the player having the highest score is declared as the winner.\n",
+        "\n",
+        "**Note:** The game is not accepting any user input. So no need of using input() function."
+      ],
+      "metadata": {
+        "id": "oPhKXJOnQsvv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "id": "5XKbbRd8O2-J"
+      },
+      "outputs": [],
+      "source": [
+        "#Import random module.\n",
+        "import random"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Create the dice_roll() function.\n",
+        "def dice_roll():\n",
+        "    dice_roll = random.randint(1, 6)\n",
+        "    return dice_roll"
+      ],
+      "metadata": {
+        "id": "xgWB7NwWQPvW"
+      },
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Create main() function\n",
+        "def main():\n",
+        "    # Create required variables\n",
+        "    player1=0\n",
+        "    player1_score=0\n",
+        "    player2=0\n",
+        "    player2_score=0\n",
+        "    rounds=1\n",
+        "    # Create a while loop which runs till rounds != 11\n",
+        "    while rounds != 11:\n",
+        "        # print current round number using print() function as print(\"Round: \", rounds)\n",
+        "        print(\"Round: \",rounds)\n",
+        "        # Call dice_roll() function for Player 1 and Player 2 and store the return value in player1 and player2 respectively.\n",
+        "        player1=dice_roll()\n",
+        "        player2=dice_roll()\n",
+        "        # print the outcomes of Player 1 & 2\n",
+        "        print(player1)\n",
+        "        print(player2)\n",
+        "        # Check if, player1 value equals that of player2. If it does, print Draw!.\n",
+        "        if player1 == player2:\n",
+        "           print(\"Draw!\")\n",
+        "        # check if player1 is greater than player2. If yes, increase player1_score by 1 and print Player 1 wins!\n",
+        "        elif player1 > player2:\n",
+        "           player1_score+=1\n",
+        "           print(\"Player 1 wins!\")\n",
+        "        # else increase player2_score by 1 and print Player 2 wins!.\n",
+        "        else:\n",
+        "            player2_score+=1\n",
+        "            print(\"Player 2 wins!\")\n",
+        "        # Increse rounds by 1.\n",
+        "        rounds+=1\n",
+        "    # Outside while loop check if, player1_score value equals that of player2_score, print Draw!\n",
+        "    if player1_score==player2_score:\n",
+        "        print(\"Draw!\")\n",
+        "    # check whether player1_score is greater than player2_score.\n",
+        "    # If yes, print(\"Final Winner: Player 1- Rounds Won: \", player1_score)\n",
+        "    elif player1_score>player2_score:\n",
+        "        print(\"Final Winner: Player 1\")\n",
+        "        print(\"Rounds Won: \",player1_score)\n",
+        "    # Otherwise print(\"Final Winner: Player 2 - Rounds Won: \", player2_score)\n",
+        "    else:\n",
+        "        print(\"Final Winner: Player 2\")\n",
+        "        print(\"Rounds Won: \", player2_score)"
+      ],
+      "metadata": {
+        "id": "GCqp820LQBCI"
+      },
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Call the 'main()' function\n",
+        "main()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aCCzos0GQDn5",
+        "outputId": "df6b874a-723e-4abf-f213-9b815539f2a1"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Round:  1\n",
+            "1\n",
+            "5\n",
+            "Player 2 wins!\n",
+            "Round:  2\n",
+            "6\n",
+            "4\n",
+            "Player 1 wins!\n",
+            "Round:  3\n",
+            "6\n",
+            "4\n",
+            "Player 1 wins!\n",
+            "Round:  4\n",
+            "6\n",
+            "3\n",
+            "Player 1 wins!\n",
+            "Round:  5\n",
+            "3\n",
+            "4\n",
+            "Player 2 wins!\n",
+            "Round:  6\n",
+            "5\n",
+            "1\n",
+            "Player 1 wins!\n",
+            "Round:  7\n",
+            "2\n",
+            "6\n",
+            "Player 2 wins!\n",
+            "Round:  8\n",
+            "3\n",
+            "6\n",
+            "Player 2 wins!\n",
+            "Round:  9\n",
+            "5\n",
+            "4\n",
+            "Player 1 wins!\n",
+            "Round:  10\n",
+            "5\n",
+            "4\n",
+            "Player 1 wins!\n",
+            "Final Winner: Player 1\n",
+            "Rounds Won:  6\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
